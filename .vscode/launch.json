@@ -1,0 +1,17 @@
+{
+    // 使用 IntelliSense 了解相关属性。
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "charging",
+            "type": "java",
+            "request": "launch",
+            "mainClass": "cn.edu.shu.Charging",
+            "projectName": "charging",
+            "args": ["-Dspring.profiles.active=dev"],
+            "vmArgs": ["-Xms2g","-Xmx2g","-XX:+UnlockDiagnosticVMOptions","-XX:+LogVMOutput","--add-exports=java.base/sun.nio.ch=ALL-UNNAMED","--add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED","--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED","--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED","--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED","--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED","--add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED","--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED","--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED","--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED","--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED","--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED","--add-opens=java.base/java.lang=ALL-UNNAMED","--add-opens=java.base/java.lang.reflect=ALL-UNNAMED","--add-opens=java.base/java.io=ALL-UNNAMED"]
+        }
+    ]
+}
