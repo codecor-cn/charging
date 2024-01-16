@@ -1,4 +1,4 @@
-﻿package cn.edu.shu.utils;
+package cn.edu.shu.utils;
 
 import javax.sql.DataSource;
 import org.apache.commons.dbutils.QueryRunner;
@@ -8,17 +8,15 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
  * 工具类
  * 1. 初始化C3P0连接池
  * 2. 创建DbUtils核心工具类对象
- *
  */
 public class JdbcUtils {
-
 	/**
 	 *  1. 初始化C3P0连接池
 	 */
 	private static  DataSource dataSource;
 	static {
-//		创建对象后会自动加载src下的配置文件【c3p0-config.xml】
-//		dataSource = new ComboPooledDataSource();//加载默认配置
+		//创建对象后会自动加载src下的配置文件【c3p0-config.xml】
+		//dataSource = new ComboPooledDataSource();//加载默认配置
 		dataSource=new ComboPooledDataSource("mysql_config");//加载已命名配置
 	}
 

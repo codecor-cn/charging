@@ -1,4 +1,4 @@
-﻿package cn.edu.shu.applet;
+package cn.edu.shu.applet;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;
@@ -86,8 +86,8 @@ public class HistoryChartApplet extends Applet {
 		valueAxis=xyplot.getRangeAxis();
 		valueAxis.setAutoRange(true);
 
-//		NumberAxis numberaxis =(NumberAxis) xyplot.getRangeAxis();
-//		numberaxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+		//NumberAxis numberaxis =(NumberAxis) xyplot.getRangeAxis();
+		//numberaxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 		return jfreechart;
 	}
 	private void addHistoryData() throws ClassNotFoundException {//////
@@ -117,10 +117,10 @@ public class HistoryChartApplet extends Applet {
 		if(datas!=null){
 			// System.out.println("get data success");
 				for(Data d:datas){
-				/*value1=d.getVoltage1();
-				value2=d.getVoltage2();//电压
-
-*/
+					/*
+					value1=d.getVoltage1();
+					value2=d.getVoltage2();//电压
+					*/
 					value1=d.getVoltage2();
 					value2=d.getVoltage1();//电压
 					xySeries.add(new Double(i), new Double(value1));

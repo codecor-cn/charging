@@ -1,4 +1,4 @@
-﻿package cn.edu.shu.utils;
+package cn.edu.shu.utils;
 
 import java.util.List;
 
@@ -71,7 +71,4 @@ public class PageBean<T> {
 	public void setCode(String code) {
 		this.code = code;
 	}
-
-
-
 }
