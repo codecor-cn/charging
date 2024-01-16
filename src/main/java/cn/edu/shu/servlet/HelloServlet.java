@@ -1,4 +1,4 @@
-package cn.edu.shu;
+package cn.edu.shu.servlet;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
