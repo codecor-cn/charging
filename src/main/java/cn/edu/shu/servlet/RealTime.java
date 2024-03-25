@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import cn.edu.shu.dao.impl.DataAcquisitionDao;
 import cn.edu.shu.entity.AlertData;
@@ -20,7 +20,7 @@ import cn.edu.shu.utils.ToObjArrayUtil;
 
 /**
  * 实时数据及报警信息显示，数据报警判断
- */ 
+ */
 public class RealTime extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,8 +28,8 @@ public class RealTime extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+
+
 
 	}
 
@@ -42,11 +42,11 @@ public class RealTime extends HttpServlet {
 				String deviceID = request.getParameter("deviceID");
 				response.setContentType("text/xml; charset=UTF-8") ;
 				response.setHeader("Cache-Control", "no-cache") ;
-				
-				
+
+
 				PrintWriter out = response.getWriter() ; ///获取输出流进行输出
 				out.print("<response>") ;
-				
+
 				Calendar c = Calendar.getInstance() ;
 				int year = c.get(Calendar.YEAR) ;
 				int month = c.get(Calendar.MONTH)+1 ;/////月份是0~11算起的，所以要加1就是1~12
@@ -57,7 +57,7 @@ public class RealTime extends HttpServlet {
 				int millisecond= c.get(Calendar.MILLISECOND);
 		/**取得实时数据，判断故障，并写入数据库*/
 				DataAcqService das=new DataAcqService();
-				
+
 				RealData array=das.getRealTimeData(deviceID);
 				if(array!=null){
 					int id=array.getId();
@@ -76,7 +76,7 @@ public class RealTime extends HttpServlet {
 					//将设备编号进行返回
 					out.println("<device>"+deviceID+"</device>");
 					String alertM=null ;
-					if(array.getRe()==0){//未判断记录入报警表     
+					if(array.getRe()==0){//未判断记录入报警表
 							if(array.getVoltage1()<10){
 							     alertM = "电压1值过低："+array.getVoltage1()+"V。" ;
 							}
@@ -151,16 +151,16 @@ public class RealTime extends HttpServlet {
 							    	 smillisecond = "00"+millisecond ;
 							     else if(millisecond <100)
 							    	 smillisecond = "0"+millisecond ;
-							     else 
+							     else
 							    	 smillisecond = ""+millisecond ;
-							     
+
 							String datime = ""+year+smonth+sday+shour+sminute+ssecond+smillisecond ;
-							   
+
 							int zlNo = array.getZlNo();
 							//System.out.println("准备插入报警信息："+alertM);
-							das.insertIntoAlertmsg(alertM, datime, zlNo) ;		
+							das.insertIntoAlertmsg(alertM, datime, zlNo) ;
 							das.setCurrentdata(id);//
-				
+
 							}
 					  }
 				}

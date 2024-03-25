@@ -2,20 +2,22 @@ package cn.edu.shu.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import cn.edu.shu.entity.Device;
 import cn.edu.shu.service.IDeviceService;
 import cn.edu.shu.service.impl.DeviceServiceImpl;
 
 /**
- * 
- * @author 
+ *
+ * @author
  * 新增或者更新充电桩对应的servlet
  */
+@WebServlet("/saveOrUpdateDevice")
 public class SaveOrUpdateDevice extends HttpServlet{
 
 	@Override
@@ -43,7 +45,5 @@ public class SaveOrUpdateDevice extends HttpServlet{
 		deviceService.saveOrUpdateDevice(device);
 		resp.sendRedirect("./DeviceList.jsp");
 	}
-	
-	
 
 }

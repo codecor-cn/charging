@@ -1,7 +1,7 @@
 package cn.edu.shu.listener;
 
-import javax.servlet.ServletContextAttributeEvent;
-import javax.servlet.ServletContextAttributeListener;
+import jakarta.servlet.ServletContextAttributeEvent;
+import jakarta.servlet.ServletContextAttributeListener;
 
 import org.springframework.web.context.ContextLoader;
 

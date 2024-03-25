@@ -2,5 +2,6 @@
     "xml.downloadExternalResources.enabled": true,
     "java.compile.nullAnalysis.mode": "automatic",
     "java.configuration.updateBuildConfiguration": "automatic",
-    "java.jdt.ls.vmargs": "-Xms512M -Xmx4G -Xlog:disable",
+    "java.jdt.ls.vmargs": "-Xms512M -Xmx4G",
+    //-Xlog:disable
 }

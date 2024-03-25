@@ -2,11 +2,11 @@ package cn.edu.shu.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import cn.edu.shu.entity.Data;
 import cn.edu.shu.utils.PageBean;
@@ -16,7 +16,7 @@ public class WriteSession extends HttpServlet {
 	private String uri="";
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+
 		String pageFlag=request.getParameter("pageFlag");
 		String startD=request.getParameter("startD");
 		String endD=request.getParameter("endD");
@@ -51,17 +51,17 @@ public class WriteSession extends HttpServlet {
 			uri="/WEB-INF/error.jsp";
 //			request.getRequestDispatcher(uri).forward(request, response);
 		}
-		
+
 
 		//		System.out.println( session.getAttribute("id"));
 //		request.getRequestDispatcher(request.getContextPath()+"/HistoryDataList").forward(request, response);
 		request.getRequestDispatcher(uri).forward(request, response);
-	
+
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 	doGet( request,response);
 	}
 

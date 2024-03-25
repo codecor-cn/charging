@@ -1,12 +1,12 @@
 package cn.edu.shu.listener;
 
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
 
 import cn.edu.shu.service.serversocket.Server;
 /**
- * 
- * @author 
+ *
+ * @author
  *创建监听，随着tomcat启动一起启动
  */
 public class PortListener implements ServletContextListener{
@@ -14,9 +14,9 @@ public class PortListener implements ServletContextListener{
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	/***
 	 * serversocket
 	 */

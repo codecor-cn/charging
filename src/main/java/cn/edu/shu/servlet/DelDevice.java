@@ -2,20 +2,22 @@ package cn.edu.shu.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import cn.edu.shu.entity.Device;
+
 import cn.edu.shu.service.IDeviceService;
 import cn.edu.shu.service.impl.DeviceServiceImpl;
 
 /**
- * 
- * @author 
+ *
+ * @author
  * 删除充电桩对应的servlet
  */
+@WebServlet("/delDevice")
 public class DelDevice extends HttpServlet{
 
 	@Override
@@ -30,15 +32,15 @@ public class DelDevice extends HttpServlet{
 		req.setCharacterEncoding("utf8");
 		resp.setCharacterEncoding("utf8");
 		//获取数据
-		
+
 		int id = Integer.parseInt(req.getParameter("id"));
-		
+
 		IDeviceService deviceService = new DeviceServiceImpl();
-		
+
 		deviceService.deleteDevice(id);
 		resp.sendRedirect("./DeviceList.jsp");
 	}
-	
-	
+
+
 
 }

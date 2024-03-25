@@ -4,18 +4,18 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import cn.edu.shu.entity.Data;
 import cn.edu.shu.service.impl.DataAcqService;
 import cn.edu.shu.utils.PageBean;
 public class HistoryServlet extends HttpServlet {
 /**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private DataAcqService das=new DataAcqService();
@@ -24,7 +24,7 @@ public class HistoryServlet extends HttpServlet {
 	public HistoryServlet(){
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		response.setContentType("text/xml; charset=UTF-8") ;
 		//response.setHeader("Cache-Control", "no-cache") ;
 		try {
@@ -32,7 +32,7 @@ public class HistoryServlet extends HttpServlet {
 			String startD = request.getParameter("startD");
 			String endD = request.getParameter("endD");
 			String pageCount = request.getParameter("pageCount");
-			HttpSession session=request.getSession();	
+			HttpSession session=request.getSession();
 //			System.out.println("get currentPage:"+currentPage);
 			//填数据
 			pageBean.setCurrentPage(Integer.parseInt(currentPage));
@@ -47,8 +47,8 @@ public class HistoryServlet extends HttpServlet {
 			session.setAttribute("pageCount", pageCount);
 			session.setAttribute("totalPage", pageBean.getTotalPage());
 //			request.setAttribute("pageBean", pageBean);
-			
-			try{	
+
+			try{
 					OutputStream outstr = response.getOutputStream();
 					ObjectOutputStream oos=new ObjectOutputStream(outstr);
 					ArrayList<Data> datas=(ArrayList<Data>) pageBean.getPageData();
@@ -60,7 +60,7 @@ public class HistoryServlet extends HttpServlet {
 				    oos.close();
 				    outstr.close();
 				    datas.clear();
-			
+
 				}catch(Exception e)
 				   {
 				    e.printStackTrace();
@@ -78,4 +78,3 @@ public class HistoryServlet extends HttpServlet {
 		doGet(request,response);
 	}
 }
-

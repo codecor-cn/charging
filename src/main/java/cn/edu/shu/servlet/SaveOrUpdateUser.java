@@ -2,10 +2,11 @@ package cn.edu.shu.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import cn.edu.shu.entity.Device;
 import cn.edu.shu.entity.User;
@@ -15,10 +16,11 @@ import cn.edu.shu.service.impl.DeviceServiceImpl;
 import cn.edu.shu.service.impl.UserServiceImpl;
 
 /**
- * 
- * @author 
+ *
+ * @author
  * 新增或者更新用户信息对应的servlet
  */
+@WebServlet("/saveOrUpdateUser")
 public class SaveOrUpdateUser extends HttpServlet{
 
 	@Override
@@ -46,7 +48,4 @@ public class SaveOrUpdateUser extends HttpServlet{
 		userService.saveOrUpdateUser(user);
 		resp.sendRedirect("./UserList.jsp");
 	}
-	
-	
-
 }
